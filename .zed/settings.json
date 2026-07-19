@@ -1,0 +1,33 @@
+{
+  "format_on_save": "off",
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/vendor",
+    "**/node_modules",
+    "**/storage/framework/cache",
+    "**/storage/framework/sessions",
+    "**/storage/framework/testing",
+    "**/storage/framework/views",
+    "**/storage/logs"
+  ],
+  "languages": {
+    "PHP": {
+      "language_servers": ["phpactor", "!intelephense", "!phptools", "..."],
+      "format_on_save": "off"
+    },
+    "JSON": {
+      "format_on_save": "on"
+    },
+    "Markdown": {
+      "format_on_save": "on"
+    }
+  }
+}

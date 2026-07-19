@@ -1,0 +1,19 @@
+{
+    "name": "laravel-blueprint",
+    "dockerComposeFile": ["../compose.yaml", "compose.yaml"],
+    "service": "app",
+    "runServices": ["postgres", "web"],
+    "workspaceFolder": "/var/www/html",
+    "remoteUser": "laravel",
+    "updateRemoteUserUID": false,
+    "shutdownAction": "stopCompose",
+    "overrideCommand": false,
+    "initializeCommand": "docker compose build app",
+    "postCreateCommand": "test -f .env || cp .env.example .env; composer install --prefer-dist --no-interaction; sh -lc 'grep -q \"^APP_KEY=base64:\" .env || php artisan key:generate --ansi'",
+    "postStartCommand": "docker/scripts/wait-for-postgres.sh && php artisan migrate --force",
+    "customizations": {
+        "zed": {
+            "extensions": ["php", "dockerfile", "make", "toml", "yaml"]
+        }
+    }
+}

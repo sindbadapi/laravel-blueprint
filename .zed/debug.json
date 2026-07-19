@@ -1,0 +1,16 @@
+[
+  {
+    // Zed runs on the host and only LISTENS on port 9003.
+    // No local PHP is required: the Xdebug DAP adapter listens, and Xdebug
+    // running inside the Docker `app` container dials back to the host
+    // (host.docker.internal:9003). Trigger a request with ?XDEBUG_TRIGGER=1,
+    // or run the "Xdebug: debug current test (Docker)" task while this listens.
+    "label": "PHP: Listen for Xdebug",
+    "adapter": "Xdebug",
+    "request": "launch",
+    "port": 9003,
+    "pathMappings": {
+      "/var/www/html": "$ZED_WORKTREE_ROOT"
+    }
+  }
+]

@@ -1,0 +1,20 @@
+:80 {
+	root * /var/www/html/public
+
+	encode zstd gzip
+
+	header {
+		X-Frame-Options "SAMEORIGIN"
+		X-Content-Type-Options "nosniff"
+		-Server
+	}
+
+	@hidden path_regexp hidden (^|/)\.
+	respond @hidden 404
+
+	try_files {path} {path}/ /index.php?{query}
+
+	php_fastcgi app:9000
+
+	file_server
+}
