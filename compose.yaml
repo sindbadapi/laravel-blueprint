@@ -29,7 +29,7 @@ services:
       - laravel
 
   web:
-    image: caddy:2.10-alpine
+    image: caddy:2.11-alpine
     ports:
       - "${APP_PORT:-8080}:80"
     volumes:
