@@ -28,7 +28,9 @@ RUN groupadd --force --gid "${WWWGROUP}" laravel \
 
 COPY docker/app/php.ini /usr/local/etc/php/conf.d/99-laravel.ini
 
-RUN chown -R laravel:laravel /var/www/html /home/laravel
+RUN chown -R laravel:laravel /var/www/html /home/laravel \
+    && mkdir -p /tmp/composer-cache \
+    && chown laravel:laravel /tmp/composer-cache
 
 USER laravel
 
