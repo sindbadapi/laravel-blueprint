@@ -27,6 +27,7 @@ Thumbs.db
 /.ai
 /.claude/settings.local.json
 /.gemini
+/.junie
 /.junit
 
 docker-compose.override.yml
